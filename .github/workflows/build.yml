@@ -24,11 +24,11 @@ jobs:
             git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config \
             zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
         pip install --upgrade pip
-        pip install --user --upgrade Cython==0.30.10 buildozer
+        # 修正 Cython 版本
+        pip install --user --upgrade Cython==0.29.37 buildozer
 
     - name: Build with Buildozer
       run: |
-        # 配置 Android SDK 接受证书（防止卡住）
         export HOME=/home/runner
         buildozer -v android debug
 
